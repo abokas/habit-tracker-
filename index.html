@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Élan — Habit Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="cursor-glow"></div>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">ÉLAN<span>HABIT ATELIER</span></div>
+      <nav>
+        <button class="nav-item active" data-view="dashboard"><i>◈</i><span data-i18n="dashboard">Обзор</span></button>
+        <button class="nav-item" data-view="calendar"><i>◌</i><span data-i18n="calendar">Календарь</span></button>
+        <button class="nav-item" data-view="analytics"><i>⌁</i><span data-i18n="analytics">Аналитика</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="mini-quote">“Small rituals.<br>Remarkable lives.”</div>
+        <button class="lang-switch" id="language"><span>RU</span><b> / </b><span>EN</span></button>
+      </div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" data-i18n="today">СЕГОДНЯ · 29 СЕНТЯБРЯ</p>
+          <h1><span data-i18n="good">Добрый вечер,</span> <em>Alex.</em></h1>
+        </div>
+        <button class="profile">A</button>
+      </header>
+
+      <section class="hero" data-section="dashboard">
+        <div class="hero-copy">
+          <span class="eyebrow" data-i18n="dailyRitual">ВАШ ЕЖЕДНЕВНЫЙ РИТУАЛ</span>
+          <h2><span data-i18n="progressTitle">Последовательность</span><br><i>создаёт</i> результат.</h2>
+          <p data-i18n="heroText">Не стремитесь к идеальности. Стремитесь к ритму, который хочется повторять.</p>
+        </div>
+        <div class="ring-wrap">
+          <svg class="progress-ring" viewBox="0 0 180 180">
+            <circle class="ring-bg" cx="90" cy="90" r="72"/>
+            <circle class="ring-value" cx="90" cy="90" r="72"/>
+          </svg>
+          <div class="ring-center"><strong>68%</strong><small data-i18n="done">выполнено</small></div>
+        </div>
+      </section>
+
+      <section class="stats-grid">
+        <article class="stat"><span data-i18n="currentStreak">ТЕКУЩАЯ СЕРИЯ</span><strong>12 <small>days</small></strong><i>↗ 4.2%</i></article>
+        <article class="stat"><span data-i18n="bestStreak">ЛУЧШАЯ СЕРИЯ</span><strong>28 <small>days</small></strong><i>Personal best</i></article>
+        <article class="stat"><span data-i18n="completion">ВЫПОЛНЕНИЕ</span><strong>84<small>%</small></strong><i>+8% this month</i></article>
+        <article class="stat"><span data-i18n="rituals">РИТУАЛОВ</span><strong>06</strong><i>3 morning · 3 evening</i></article>
+      </section>
+
+      <section class="content-grid">
+        <div class="habits-panel">
+          <div class="section-head"><div><span class="eyebrow" data-i18n="collection">ВАША КОЛЛЕКЦИЯ</span><h3 data-i18n="habits">Привычки</h3></div><button class="add" id="addHabit">＋ <span data-i18n="add">Добавить</span></button></div>
+          <div id="habitList"></div>
+        </div>
+
+        <div class="focus-card">
+          <span class="eyebrow" data-i18n="focus">ФОКУС НЕДЕЛИ</span>
+          <div class="focus-orb"></div>
+          <h3 data-i18n="focusTitle">Protect your mornings.</h3>
+          <p data-i18n="focusText">Первые 60 минут задают тон всему дню. Оставьте телефон в покое и начните с себя.</p>
+          <div class="focus-line"><span></span></div>
+          <small>03 / 07 <b data-i18n="days">ДНЕЙ</b></small>
+        </div>
+      </section>
+
+      <section class="calendar-section" data-section="calendar">
+        <div class="section-head"><div><span class="eyebrow" data-i18n="rhythm">РИТМ</span><h3 data-i18n="monthly">Сентябрь 2026</h3></div><div class="month-arrows">‹ &nbsp; ›</div></div>
+        <div class="calendar" id="calendar"></div>
+      </section>
+
+      <section class="analytics-section" data-section="analytics">
+        <div class="section-head"><div><span class="eyebrow" data-i18n="insight">INSIGHT</span><h3 data-i18n="analyticsTitle">Ваш прогресс</h3></div></div>
+        <div class="bars" id="bars"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast">Ritual completed ✦</div>
+  <script src="script.js"></script>
+</body>
+</html>
